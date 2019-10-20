@@ -5,34 +5,22 @@ public class App {
         return "Hello world.";
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        BalloonOrder balloonOrder1 = new BalloonOrder("red", "mylar", "4");
+        BalloonOrder balloonOrder2 = new BalloonOrder("blue", "latex", "7");
+        BalloonOrder balloonOrder3 = new BalloonOrder("yellow", "mylar", "4");
 
-         //Place birthday party orders
-         order("red", "mylar", "4", "chocolate", "chocolate", "circle", "large", "brown" );
-         order("blue", "latex", "7", "Vanilla", "chocelate", "square", "med", "brown" );
-         order("yellow", "mylar", "4", "vanilla", "vanilla", "square", "small", "yellow" );
+        CakeOrder cakeOrder1 = new CakeOrder("chocolate", "chocolate", "circle", "large", "brown");
+        CakeOrder cakeOrder2 = new CakeOrder("Vanilla", "chocelate", "square", "med", "brown");
+        CakeOrder cakeOrder3 = new CakeOrder("vanilla", "vanilla", "square", "small", "yellow");
 
+        OrderProcessor orderProcessor = new OrderProcessor();
+
+        orderProcessor.processOrder(balloonOrder1);
+        orderProcessor.processOrder(balloonOrder2);
+        orderProcessor.processOrder(balloonOrder3);
+        orderProcessor.processOrder(cakeOrder1);
+        orderProcessor.processOrder(cakeOrder2);
+        orderProcessor.processOrder(cakeOrder3);
     }
-
-    private static void order(String balloonColor, String material, String number, String flavor, String frostingFlavor, String shape, String size, String cakeColor){
-
-        orderBalloons(balloonColor, material, number);
-
-        orderCake(frostingFlavor, flavor, shape, size, cakeColor);
-    }
-
-    private static void orderBalloons(String balloonColor, String material, String number){
-
-        //for the purposes of this exercise, pretend this method works and adds balloons to the order
-        System.out.println("Balloons ordered; " + balloonColor + ", " + material  + ", " + number);
-
-    }
-
-    private static void orderCake(String flavor, String frostingFlavor, String shape, String size, String cakeColor){
-
-        //for the purposes of this exercise, pretend that this method adds a cake to the order
-        System.out.println("cake ordered; " + flavor + ", " + frostingFlavor  + ", " + shape + ", " + size + ", " + cakeColor);
-
-    }
-
 }
